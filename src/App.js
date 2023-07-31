@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Link, Route, Routes } from 'react-router-dom';
+
+import ActivityLog from "./ActivityLog";
+import TodoList from "./TodoList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-200 min-h-screen">
+      <div className='w-full bg-white shadow-lg mb-4 px-8 py-4 flex gap-8'>
+        <Link to="/">Todos</Link>
+        <Link to="/activity">Activity Log</Link>
+      </div>
+      <Routes>
+        <Route path='/' element={<TodoList />} />
+        <Route path='/activity' element={<ActivityLog />} />
+      </Routes>
     </div>
   );
 }
